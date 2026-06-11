@@ -1,0 +1,1 @@
+cat tradesphere-master-blueprint.md
