@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: tradesphere-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: tradesphere
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # 2. Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: tradesphere-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  # 3. Fastify Node Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tradesphere-backend
+    restart: always
+    environment:
+      PORT: 3001
+      DATABASE_URL: postgres://postgres:password123@postgres:5432/tradesphere
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: tradesphere-production-jwt-super-secret-key-999
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+      - redis
+
+  # 4. React Nginx Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: tradesphere-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  # 5. Prometheus Metrics Scraper
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: tradesphere-prometheus
+    restart: always
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

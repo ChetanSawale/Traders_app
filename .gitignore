@@ -1,0 +1,32 @@
+# Dependencies
+**/node_modules/
+node_modules/
+
+# Production Builds
+**/dist/
+dist/
+
+# Local Environment Variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Log Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

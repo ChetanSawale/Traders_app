@@ -1,0 +1,65 @@
+name: TradeSphere CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  # 1. INTEGRATION JOB: Type checking and builds verification
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: |
+            backend/package-lock.json
+            frontend/package-lock.json
+
+      # A. Backend Verification
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          npm ci
+
+      - name: Compile Backend TypeScript
+        run: |
+          cd backend
+          npm run build
+
+      # B. Frontend Verification
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm ci --legacy-peer-deps
+
+      - name: Compile Frontend Assets
+        run: |
+          cd frontend
+          npm run build
+
+  # 2. DEPLOY JOB: SSH deployment to DigitalOcean droplet
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+    steps:
+      - name: SSH Deploy to digitalOcean droplet
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.STAGING_SERVER_IP }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /opt/tradesphere
+            git pull origin master
+            docker compose down
+            docker compose up --build -d
+            docker system prune -f
