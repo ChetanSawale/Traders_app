@@ -40,6 +40,8 @@ services:
         value: trader-backend
       - key: BACKEND_PORT
         value: "10000"
+      - key: BACKEND_RESOLVER
+        value: 169.254.169.254
 
 databases:
   - name: trader-postgres

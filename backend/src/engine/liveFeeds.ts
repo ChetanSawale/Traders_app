@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { cache } from '../redis/redis';
+import { cache } from '../redis/redis.js';
 
 export interface TickerPrice {
   ticker: string;

@@ -3,8 +3,8 @@ import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import { authenticator } from 'otplib';
 import * as QRCode from 'qrcode';
-import { pool } from '../db/db';
-import { authenticate } from '../middleware/auth';
+import { pool } from '../db/db.js';
+import { authenticate } from '../middleware/auth.js';
 import * as dotenv from 'dotenv';
 
 dotenv.config();

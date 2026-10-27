@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
-import { pool } from '../db/db';
-import { authenticate } from '../middleware/auth';
+import { pool } from '../db/db.js';
+import { authenticate } from '../middleware/auth.js';
 
 export async function educationRoutes(fastify: FastifyInstance) {
   fastify.addHook('preHandler', authenticate);

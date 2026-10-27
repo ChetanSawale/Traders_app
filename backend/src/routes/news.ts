@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify';
 import Parser from 'rss-parser';
-import { cache } from '../redis/redis';
-import { authenticate } from '../middleware/auth';
+import { cache } from '../redis/redis.js';
+import { authenticate } from '../middleware/auth.js';
 
 const parser = new Parser();
 const NEWS_CACHE_KEY = 'tradesphere:news';

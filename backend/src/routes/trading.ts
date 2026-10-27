@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify';
-import { pool } from '../db/db';
-import { authenticate } from '../middleware/auth';
-import { getLatestPrices, getPriceForTicker } from '../engine/liveFeeds';
-import { processOrderFill, DbOrder } from '../engine/matching';
+import { pool } from '../db/db.js';
+import { authenticate } from '../middleware/auth.js';
+import { getLatestPrices, getPriceForTicker } from '../engine/liveFeeds.js';
+import { processOrderFill, DbOrder } from '../engine/matching.js';
 
 export async function tradingRoutes(fastify: FastifyInstance) {
   // Apply auth middleware to all routes in this plugin

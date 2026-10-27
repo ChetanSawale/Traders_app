@@ -1,5 +1,5 @@
-import { pool } from '../db/db';
-import { feedEvents, TickerPrice } from './liveFeeds';
+import { pool } from '../db/db.js';
+import { feedEvents, TickerPrice } from './liveFeeds.js';
 
 export interface DbOrder {
   id: number;

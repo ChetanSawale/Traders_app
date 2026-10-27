@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { RawData, WebSocket } from 'ws';
-import { feedEvents, getLatestPrices, TickerPrice } from '../engine/liveFeeds';
+import { feedEvents, getLatestPrices, TickerPrice } from '../engine/liveFeeds.js';
 
 const clients = new Set<WebSocket>();
 

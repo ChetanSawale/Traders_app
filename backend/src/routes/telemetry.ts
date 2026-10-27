@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { pool } from '../db/db';
+import { pool } from '../db/db.js';
 
 let apiRequestCounter: Record<string, number> = {};
 

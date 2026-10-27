@@ -23,9 +23,15 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
+    # Resolve the backend at request time, not at nginx startup: with a literal
+    # proxy_pass, nginx resolves the upstream once at startup and dies with
+    # "host not found" if the backend isn't registered yet (what happened on Render).
+    resolver ${BACKEND_RESOLVER} valid=30s ipv6=off;
+
     # Proxy REST API requests to Fastify backend upstream container
     location /api {
-        proxy_pass http://${BACKEND_HOST}:${BACKEND_PORT};
+        set $backend_upstream http://${BACKEND_HOST}:${BACKEND_PORT};
+        proxy_pass $backend_upstream;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -38,7 +44,8 @@ server {
 
     # Proxy WebSocket quotes stream connections
     location /ws {
-        proxy_pass http://${BACKEND_HOST}:${BACKEND_PORT}/ws;
+        set $backend_upstream http://${BACKEND_HOST}:${BACKEND_PORT}/ws;
+        proxy_pass $backend_upstream;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
