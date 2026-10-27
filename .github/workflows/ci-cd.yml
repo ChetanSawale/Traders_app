@@ -1,4 +1,4 @@
-name: TradeSphere CI/CD Pipeline
+name: TradeSphere CI
 
 on:
   push:
@@ -45,21 +45,7 @@ jobs:
           cd frontend
           npm run build
 
-  # 2. DEPLOY JOB: SSH deployment to DigitalOcean droplet
-  deploy:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-    steps:
-      - name: SSH Deploy to digitalOcean droplet
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.STAGING_SERVER_IP }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /opt/tradesphere
-            git pull origin master
-            docker compose down
-            docker compose up --build -d
-            docker system prune -f
+# NOTE: Deployment is via the Render Blueprint (render.yaml) at the repo root,
+# not via this workflow. The old DigitalOcean SSH deploy job was removed on
+# 2026-10-27 because it failed on every push since the initial commit and
+# is no longer the deploy target (Render is, AWS later).
