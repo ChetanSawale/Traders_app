@@ -113,8 +113,8 @@ export default function MetricsPanel() {
     ctx.closePath();
 
     const areaGlow = ctx.createLinearGradient(0, 0, 0, height);
-    areaGlow.addColorStop(0, 'rgba(79, 70, 229, 0.25)');   // Cosmic Indigo
-    areaGlow.addColorStop(0.5, 'rgba(139, 92, 246, 0.08)'); // Cosmic Violet
+    areaGlow.addColorStop(0, 'rgba(226, 166, 61, 0.25)');   // Signal amber
+    areaGlow.addColorStop(0.5, 'rgba(226, 166, 61, 0.08)'); // Signal amber fade
     areaGlow.addColorStop(1, 'transparent');
     ctx.fillStyle = areaGlow;
     ctx.fill();
@@ -131,9 +131,9 @@ export default function MetricsPanel() {
     ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
     
     const lineGlow = ctx.createLinearGradient(0, 0, width, 0);
-    lineGlow.addColorStop(0, '#4f46e5');
-    lineGlow.addColorStop(0.5, '#8b5cf6');
-    lineGlow.addColorStop(1, '#06b6d4');
+    lineGlow.addColorStop(0, '#E2A63D');
+    lineGlow.addColorStop(0.5, '#E2A63D');
+    lineGlow.addColorStop(1, '#E2A63D');
     ctx.strokeStyle = lineGlow;
     ctx.lineWidth = 2.5;
     ctx.stroke();
@@ -165,7 +165,7 @@ export default function MetricsPanel() {
         <div className="glass-panel p-4 rounded-xl border border-white/5 relative overflow-hidden flex flex-col justify-between h-[100px] animate-float-fast">
           <div className="flex justify-between items-center text-zinc-500 font-mono text-[10px] uppercase tracking-widest">
             <span>Win Rate</span>
-            <Percent className="w-3.5 h-3.5 text-cosmic-teal" />
+            <Percent className="w-3.5 h-3.5 text-terminal-accent" />
           </div>
           <div className="text-2xl font-bold text-white font-mono mt-1">
             {loading ? '...' : `${metrics.win_rate}%`}
@@ -179,7 +179,7 @@ export default function MetricsPanel() {
         <div className="glass-panel p-4 rounded-xl border border-white/5 relative overflow-hidden flex flex-col justify-between h-[100px] animate-float-fast" style={{ animationDelay: '0.1s' }}>
           <div className="flex justify-between items-center text-zinc-500 font-mono text-[10px] uppercase tracking-widest">
             <span>Profit Factor</span>
-            <Target className="w-3.5 h-3.5 text-cosmic-violet" />
+            <Target className="w-3.5 h-3.5 text-terminal-accent" />
           </div>
           <div className="text-2xl font-bold text-white font-mono mt-1">
             {loading ? '...' : metrics.profit_factor.toFixed(2)}
@@ -214,7 +214,7 @@ export default function MetricsPanel() {
 
       {/* Equity Curve Panel */}
       <div className="glass-panel p-5 rounded-xl border border-white/5 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-cosmic-violet/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-terminal-accent/5 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="flex justify-between items-center mb-4">
           <div>

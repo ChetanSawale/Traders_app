@@ -208,7 +208,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
         <div className="grid grid-cols-4 gap-1 p-1 bg-white/5 rounded-lg border border-white/5 text-xs font-semibold">
           <button
             onClick={() => setSide('BUY')}
-            className={`py-1.5 rounded-md transition-colors cursor-none ${side === 'BUY' ? 'bg-emerald-500 text-white shadow' : 'text-zinc-400 hover:text-white'}`}
+            className={`py-1.5 rounded-md transition-colors cursor-none ${side === 'BUY' ? 'bg-terminal-bull text-white shadow' : 'text-zinc-400 hover:text-white'}`}
           >
             Buy
           </button>
@@ -220,14 +220,14 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
           </button>
           <button
             onClick={() => setSide('SELL_SHORT')}
-            className={`py-1.5 rounded-md transition-colors cursor-none ${side === 'SELL_SHORT' ? 'bg-purple-600 text-white shadow' : 'text-zinc-400 hover:text-white'}`}
+            className={`py-1.5 rounded-md transition-colors cursor-none ${side === 'SELL_SHORT' ? 'bg-terminal-bear text-white shadow' : 'text-zinc-400 hover:text-white'}`}
             title="Short Sell"
           >
             Short
           </button>
           <button
             onClick={() => setSide('BUY_TO_COVER')}
-            className={`py-1.5 rounded-md transition-colors cursor-none ${side === 'BUY_TO_COVER' ? 'bg-indigo-600 text-white shadow' : 'text-zinc-400 hover:text-white'}`}
+            className={`py-1.5 rounded-md transition-colors cursor-none ${side === 'BUY_TO_COVER' ? 'bg-terminal-accent text-black shadow' : 'text-zinc-400 hover:text-white'}`}
             title="Cover Short"
           >
             Cover
@@ -241,7 +241,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
             <select
               value={type}
               onChange={(e) => setType(e.target.value as any)}
-              className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none cursor-none focus:border-cosmic-indigo"
+              className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none cursor-none focus:border-terminal-accent"
             >
               <option value="MARKET" className="bg-space-950">Market Order</option>
               <option value="LIMIT" className="bg-space-950">Limit Order</option>
@@ -256,7 +256,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
               step="any"
               value={qty}
               onChange={(e) => setQty(e.target.value)}
-              className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-cosmic-indigo cursor-none"
+              className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-terminal-accent cursor-none"
             />
           </div>
 
@@ -270,7 +270,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
                 value={limitPrice}
                 onChange={(e) => setLimitPrice(e.target.value)}
                 placeholder={lastTickPrice?.toString() || '0.00'}
-                className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-cosmic-indigo cursor-none"
+                className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-terminal-accent cursor-none"
               />
             </div>
           )}
@@ -285,7 +285,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
                 placeholder="None"
                 value={stopLoss}
                 onChange={(e) => setStopLoss(e.target.value)}
-                className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-cosmic-indigo cursor-none"
+                className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-terminal-accent cursor-none"
               />
             </div>
             <div className="space-y-1">
@@ -296,7 +296,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
                 placeholder="None"
                 value={takeProfit}
                 onChange={(e) => setTakeProfit(e.target.value)}
-                className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-cosmic-indigo cursor-none"
+                className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white placeholder-zinc-600 outline-none focus:border-terminal-accent cursor-none"
               />
             </div>
           </div>
@@ -322,9 +322,9 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
             type="submit"
             disabled={loading}
             className={`w-full py-2.5 rounded-lg text-white font-semibold text-xs transition-colors cursor-none ${
-              side === 'BUY' ? 'bg-emerald-600 hover:bg-emerald-500' : 
+              side === 'BUY' ? 'bg-terminal-bull hover:bg-terminal-bull' : 
               side === 'SELL' ? 'bg-red-600 hover:bg-red-500' :
-              side === 'SELL_SHORT' ? 'bg-purple-600 hover:bg-purple-500' : 'bg-indigo-600 hover:bg-indigo-500'
+              side === 'SELL_SHORT' ? 'bg-terminal-bear hover:bg-terminal-bear' : 'bg-terminal-accent hover:bg-terminal-accent'
             }`}
           >
             {loading ? 'Processing...' : `Submit ${side} Order`}
@@ -333,7 +333,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
 
         {/* Local notifications banner */}
         {notification && (
-          <div className={`p-3 rounded-lg flex items-start space-x-2 text-xs leading-tight ${notification.type === 'success' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
+          <div className={`p-3 rounded-lg flex items-start space-x-2 text-xs leading-tight ${notification.type === 'success' ? 'bg-terminal-bull/10 text-terminal-bull border border-terminal-bull/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
             {notification.type === 'success' ? <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" /> : <XCircle className="w-4 h-4 shrink-0 mt-0.5" />}
             <span>{notification.message}</span>
           </div>
@@ -354,7 +354,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
           </div>
           <div className="glass-panel p-4 rounded-xl border border-white/5">
             <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Open Return P&L</span>
-            <div className={`text-lg font-bold mt-0.5 font-mono flex items-center ${pnl >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+            <div className={`text-lg font-bold mt-0.5 font-mono flex items-center ${pnl >= 0 ? 'text-terminal-bull' : 'text-red-500'}`}>
               {pnl >= 0 ? '+' : ''}${pnl.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               {pnl >= 0 ? <ArrowUpRight className="w-4 h-4 ml-1" /> : <ArrowDownRight className="w-4 h-4 ml-1" />}
             </div>
@@ -378,19 +378,19 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
           <div className="flex space-x-4 text-xs font-mono">
             <button
               onClick={() => setActiveTab('positions')}
-              className={`pb-2 transition-colors border-b-2 cursor-none ${activeTab === 'positions' ? 'text-white border-cosmic-teal font-semibold' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
+              className={`pb-2 transition-colors border-b-2 cursor-none ${activeTab === 'positions' ? 'text-white border-terminal-accent font-semibold' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
             >
               Open Positions ({positions.length})
             </button>
             <button
               onClick={() => setActiveTab('orders')}
-              className={`pb-2 transition-colors border-b-2 cursor-none ${activeTab === 'orders' ? 'text-white border-cosmic-teal font-semibold' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
+              className={`pb-2 transition-colors border-b-2 cursor-none ${activeTab === 'orders' ? 'text-white border-terminal-accent font-semibold' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
             >
               Pending Triggers ({orders.filter(o => o.status === 'PENDING').length})
             </button>
             <button
               onClick={() => setActiveTab('journal')}
-              className={`pb-2 transition-colors border-b-2 cursor-none ${activeTab === 'journal' ? 'text-white border-cosmic-teal font-semibold' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
+              className={`pb-2 transition-colors border-b-2 cursor-none ${activeTab === 'journal' ? 'text-white border-terminal-accent font-semibold' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
             >
               Journal Logs ({transactions.length})
             </button>
@@ -440,17 +440,17 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
                           {pos.ticker}
                         </td>
                         <td className="p-4">
-                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${pos.side === 'LONG' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'}`}>
+                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${pos.side === 'LONG' ? 'bg-terminal-bull/10 text-terminal-bull border border-terminal-bull/20' : 'bg-terminal-bear/10 text-terminal-bear border border-terminal-bear/20'}`}>
                             {pos.side}
                           </span>
                         </td>
                         <td className="p-4 text-right">{pos.quantity}</td>
                         <td className="p-4 text-right">${pos.average_entry_price.toFixed(2)}</td>
                         <td className="p-4 text-right">${pos.current_price?.toFixed(2)}</td>
-                        <td className={`p-4 text-right font-semibold ${pos.pnl >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                        <td className={`p-4 text-right font-semibold ${pos.pnl >= 0 ? 'text-terminal-bull' : 'text-red-500'}`}>
                           {pos.pnl >= 0 ? '+' : ''}${pos.pnl.toFixed(2)}
                         </td>
-                        <td className={`p-4 text-right font-semibold ${pos.pnl_percent >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                        <td className={`p-4 text-right font-semibold ${pos.pnl_percent >= 0 ? 'text-terminal-bull' : 'text-red-500'}`}>
                           {pos.pnl_percent >= 0 ? '+' : ''}{pos.pnl_percent}%
                         </td>
                       </tr>
@@ -493,7 +493,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
                           <td className="p-4 font-bold text-white">{order.ticker}</td>
                           <td className="p-4">{order.type}</td>
                           <td className="p-4">
-                            <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${order.side.includes('BUY') ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'}`}>
+                            <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${order.side.includes('BUY') ? 'bg-terminal-bull/10 text-terminal-bull' : 'bg-red-500/10 text-red-400'}`}>
                               {order.side}
                             </span>
                           </td>
@@ -543,7 +543,7 @@ export default function PortfolioLedger({ selectedTicker, onSelectTicker, onOrde
                         </td>
                         <td className="p-4 font-bold text-white">{tx.ticker}</td>
                         <td className="p-4">
-                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${tx.side.includes('BUY') ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'}`}>
+                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${tx.side.includes('BUY') ? 'bg-terminal-bull/10 text-terminal-bull' : 'bg-red-500/10 text-red-400'}`}>
                             {tx.side}
                           </span>
                         </td>

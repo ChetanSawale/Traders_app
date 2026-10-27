@@ -39,6 +39,9 @@ server.register(fastifyWebsocket);
 // Instrument request metrics
 instrumentTelemetry(server);
 
+// Health check for Render / load balancers (no auth, no DB touch)
+server.get('/health', async () => ({ status: 'ok' }));
+
 // Register Route Handlers
 server.register(authRoutes);
 server.register(tradingRoutes);

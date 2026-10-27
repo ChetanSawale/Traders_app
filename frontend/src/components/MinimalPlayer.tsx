@@ -258,7 +258,7 @@ export default function MinimalPlayer({ videoUrl, onProgressUpdate }: MinimalPla
 
           {/* Telemetry info */}
           <div className="absolute top-4 left-4 border border-white/10 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md text-xs font-mono text-zinc-300 z-30 flex items-center space-x-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-cosmic-teal animate-pulse" />
+            <Sparkles className="w-3.5 h-3.5 text-terminal-accent animate-pulse" />
             <span>ACADEMY STREAM</span>
           </div>
         </div>
@@ -275,7 +275,7 @@ export default function MinimalPlayer({ videoUrl, onProgressUpdate }: MinimalPla
               step="0.1"
               value={progress}
               onChange={seek}
-              className="flex-1 h-1 bg-zinc-800 rounded-lg appearance-none cursor-none accent-cosmic-indigo outline-none"
+              className="flex-1 h-1 bg-zinc-800 rounded-lg appearance-none cursor-none accent-terminal-accent outline-none"
             />
             <span>{formatTime(duration)}</span>
           </div>
@@ -318,7 +318,7 @@ export default function MinimalPlayer({ videoUrl, onProgressUpdate }: MinimalPla
       {/* 2. Bookmarkable Annotation Learning Notes Sidebar */}
       <div className="glass-panel p-4 rounded-xl border border-white/5 flex flex-col h-[480px]">
         <h3 className="text-sm font-semibold tracking-wide text-white mb-3 flex items-center font-mono uppercase">
-          <Bookmark className="w-4 h-4 text-cosmic-teal mr-2" />
+          <Bookmark className="w-4 h-4 text-terminal-accent mr-2" />
           Annotation Notes
         </h3>
 
@@ -336,7 +336,7 @@ export default function MinimalPlayer({ videoUrl, onProgressUpdate }: MinimalPla
                 onClick={() => seekToTimestamp(note.timestamp_seconds)}
                 className="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 cursor-none transition-all duration-200 text-left"
               >
-                <div className="flex justify-between items-center text-xs font-mono text-cosmic-teal mb-1">
+                <div className="flex justify-between items-center text-xs font-mono text-terminal-accent mb-1">
                   <span className="flex items-center">
                     <Clock className="w-3 h-3 mr-1" />
                     {formatTime(note.timestamp_seconds)}
@@ -358,11 +358,11 @@ export default function MinimalPlayer({ videoUrl, onProgressUpdate }: MinimalPla
             placeholder={`Note at ${formatTime(currentTime)}...`}
             value={noteText}
             onChange={(e) => setNoteText(e.target.value)}
-            className="flex-1 bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none focus:border-cosmic-indigo transition-colors font-sans"
+            className="flex-1 bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-xs text-white placeholder-zinc-500 outline-none focus:border-terminal-accent transition-colors font-sans"
           />
           <button
             type="submit"
-            className="bg-cosmic-indigo hover:bg-indigo-600 text-white rounded-lg px-3 py-2 text-xs font-semibold flex items-center transition-colors"
+            className="bg-terminal-accent hover:bg-terminal-accent-dark text-black rounded-lg px-3 py-2 text-xs font-semibold flex items-center transition-colors"
           >
             Add
           </button>

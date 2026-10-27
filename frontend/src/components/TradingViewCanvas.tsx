@@ -9,7 +9,12 @@ interface TradingViewCanvasProps {
   onPriceTick?: (price: number) => void;
 }
 
-export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001/ws', activeOrders = [], onPriceTick }: TradingViewCanvasProps) {
+export default function TradingViewCanvas({ ticker, wsUrl, activeOrders = [], onPriceTick }: TradingViewCanvasProps) {
+  // Same-origin WebSocket: works behind the nginx proxy on Render and in Docker Compose.
+  // Only falls back to localhost for local dev without a proxy.
+  const effectiveWsUrl = wsUrl ?? (typeof window !== 'undefined'
+    ? `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws`
+    : 'ws://localhost:3001/ws');
   const chartContainerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<any>(null);
   const seriesRef = useRef<ISeriesApi<'Candlestick'> | null>(null);
@@ -45,11 +50,11 @@ export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001
 
     // Add Candlestick Series
     const candleSeries = chart.addCandlestickSeries({
-      upColor: '#10b981',
-      downColor: '#ef4444',
+      upColor: '#2E9E62',
+      downColor: '#C94A3A',
       borderVisible: false,
-      wickUpColor: '#10b981',
-      wickDownColor: '#ef4444',
+      wickUpColor: '#2E9E62',
+      wickDownColor: '#C94A3A',
     });
 
     seriesRef.current = candleSeries;
@@ -104,7 +109,7 @@ export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001
 
     const connectWebSocket = () => {
       console.log('Connecting to WebSocket live price ticks...');
-      const socket = new WebSocket(wsUrl);
+      const socket = new WebSocket(effectiveWsUrl);
       socketRef.current = socket;
 
       socket.onmessage = (event) => {
@@ -188,7 +193,7 @@ export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001
     activeOrders
       .filter((o) => o.ticker === ticker)
       .forEach((order) => {
-        const color = order.side === 'BUY' || order.side === 'BUY_TO_COVER' ? '#10b981' : '#ef4444';
+        const color = order.side === 'BUY' || order.side === 'BUY_TO_COVER' ? '#2E9E62' : '#C94A3A';
         try {
           const line = seriesRef.current?.createPriceLine({
             price: order.price,
@@ -210,7 +215,7 @@ export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001
   return (
     <div className="glass-panel p-4 rounded-xl border border-white/5 relative overflow-hidden">
       {/* Background glow behind charts */}
-      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-cosmic-indigo/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-terminal-accent/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header telemetry details */}
       <div className="flex justify-between items-center mb-4">
@@ -221,7 +226,7 @@ export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001
             <span className={`text-2xl font-mono font-bold tracking-wide ${currentPrice ? 'text-white' : 'text-zinc-600'}`}>
               {currentPrice ? `$${currentPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : 'Connecting...'}
             </span>
-            <span className={`text-sm font-mono font-semibold ${priceChange >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+            <span className={`text-sm font-mono font-semibold ${priceChange >= 0 ? 'text-terminal-bull' : 'text-red-500'}`}>
               {priceChange >= 0 ? '+' : ''}{priceChange}%
             </span>
           </div>
@@ -229,7 +234,7 @@ export default function TradingViewCanvas({ ticker, wsUrl = 'ws://localhost:3001
 
         <div className="flex space-x-2 text-zinc-400">
           <div className="flex items-center space-x-1 border border-white/5 bg-white/5 px-2.5 py-1 rounded-md text-xs font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping mr-1" />
+            <span className="w-1.5 h-1.5 rounded-full bg-terminal-bull animate-ping mr-1" />
             <span>LIVE FEED</span>
           </div>
         </div>

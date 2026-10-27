@@ -116,7 +116,7 @@ export default function CourseQuizzes() {
       <div className="flex justify-between items-start">
         <div>
           <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest flex items-center">
-            <Sparkles className="w-3.5 h-3.5 text-cosmic-violet mr-1.5 animate-pulse" />
+            <Sparkles className="w-3.5 h-3.5 text-terminal-accent mr-1.5 animate-pulse" />
             Interactive Drawing Quiz
           </span>
           <h3 className="text-lg font-bold text-white mt-1">
@@ -135,13 +135,13 @@ export default function CourseQuizzes() {
         <div className="flex space-x-1.5 bg-white/5 p-1 rounded-lg border border-white/5">
           <button
             onClick={() => { setActiveQuiz('support_zone'); resetQuiz(); }}
-            className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeQuiz === 'support_zone' ? 'bg-cosmic-indigo text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeQuiz === 'support_zone' ? 'bg-terminal-accent text-black shadow-md' : 'text-zinc-400 hover:text-white'}`}
           >
             Support
           </button>
           <button
             onClick={() => { setActiveQuiz('resistance_zone'); resetQuiz(); }}
-            className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeQuiz === 'resistance_zone' ? 'bg-cosmic-indigo text-white shadow-md' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${activeQuiz === 'resistance_zone' ? 'bg-terminal-accent text-black shadow-md' : 'text-zinc-400 hover:text-white'}`}
           >
             Resistance
           </button>
@@ -165,11 +165,11 @@ export default function CourseQuizzes() {
 
           {/* Visual support line helper guide */}
           {result && activeQuiz === 'support_zone' && (
-            <line x1="0" y1="220" x2="600" y2="220" stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
+            <line x1="0" y1="220" x2="600" y2="220" stroke="#2E9E62" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
           )}
           {/* Visual resistance line helper guide */}
           {result && activeQuiz === 'resistance_zone' && (
-            <line x1="0" y1="80" x2="600" y2="80" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
+            <line x1="0" y1="80" x2="600" y2="80" stroke="#C94A3A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
           )}
 
           {/* Candlestick chart path */}
@@ -197,12 +197,12 @@ export default function CourseQuizzes() {
           {/* Definitions */}
           <defs>
             <linearGradient id="chart-gradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#4f46e5" />
-              <stop offset="50%" stopColor="#8b5cf6" />
-              <stop offset="100%" stopColor="#06b6d4" />
+              <stop offset="0%" stopColor="#E2A63D" />
+              <stop offset="50%" stopColor="#E2A63D" />
+              <stop offset="100%" stopColor="#E2A63D" />
             </linearGradient>
             <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#4f46e5" />
+              <stop offset="0%" stopColor="#E2A63D" />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
           </defs>
@@ -213,7 +213,7 @@ export default function CourseQuizzes() {
               cx={clickedPoint.x}
               cy={clickedPoint.y}
               r="7"
-              fill={result ? (result.correct ? '#10b981' : '#ef4444') : '#f59e0b'}
+              fill={result ? (result.correct ? '#2E9E62' : '#C94A3A') : '#E2A63D'}
               className="animate-ping"
               opacity="0.8"
             />
@@ -223,7 +223,7 @@ export default function CourseQuizzes() {
               cx={clickedPoint.x}
               cy={clickedPoint.y}
               r="4"
-              fill={result ? (result.correct ? '#10b981' : '#ef4444') : '#f59e0b'}
+              fill={result ? (result.correct ? '#2E9E62' : '#C94A3A') : '#E2A63D'}
             />
           )}
         </svg>
@@ -232,12 +232,12 @@ export default function CourseQuizzes() {
         {result && (
           <div className="absolute bottom-4 left-4 right-4 bg-zinc-950/90 border border-white/10 p-3 rounded-lg backdrop-blur-md flex items-start space-x-3 animate-float-fast z-20">
             {result.correct ? (
-              <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+              <CheckCircle className="w-5 h-5 text-terminal-bull shrink-0 mt-0.5" />
             ) : (
               <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
             )}
             <div className="flex-1">
-              <span className={`text-xs font-bold font-mono uppercase tracking-wider ${result.correct ? 'text-emerald-500' : 'text-red-500'}`}>
+              <span className={`text-xs font-bold font-mono uppercase tracking-wider ${result.correct ? 'text-terminal-bull' : 'text-red-500'}`}>
                 {result.correct ? 'Completed' : 'Retry Required'}
               </span>
               <p className="text-xs text-zinc-300 font-sans mt-0.5 leading-relaxed">{result.message}</p>

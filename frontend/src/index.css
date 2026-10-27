@@ -1,18 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+  TradeSphere palette — "trading terminal", not the generic AI look.
+  No indigo/violet/cyan gradients, no glassmorphism glow.
+  One signal accent (amber) for actions, green/red reserved for
+  market direction only, warm ink + warm paper for everything else.
+  - ink #0C0D0A, panel #15170F, line #2A2D22
+  - paper #EDEAE0, muted #8F8C7E
+  - accent #E2A63D, bull #2E9E62, bear #C94A3A
+*/
 @layer base {
   body {
-    background-color: #030308;
-    background-image: 
-      radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
-    color: #f3f4f6;
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #0C0D0A;
+    color: #EDEAE0;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
     cursor: none; /* Hide default cursor to use custom magnetic tracker */
   }
@@ -22,21 +27,19 @@
   }
 
   code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
   }
 }
 
 /* Custom Utilities */
 
-/* Glassmorphism Panel */
+/* Solid terminal panel — replaces glassmorphism */
 .glass-panel {
-  background: rgba(10, 10, 22, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #15170F;
+  border: 1px solid #2A2D22;
 }
 
-/* Glowing Border Effect */
+/* Amber edge on hover — replaces the indigo/violet gradient glow */
 .glow-border {
   position: relative;
 }
@@ -44,7 +47,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(90deg, rgba(79, 70, 229, 0.3), rgba(6, 182, 212, 0.3), rgba(139, 92, 246, 0.3));
+  border: 1px solid rgba(226, 166, 61, 0.45);
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
@@ -70,14 +73,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(3, 3, 8, 0.5);
+  background: rgba(12, 13, 10, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(237, 234, 224, 0.15);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(226, 166, 61, 0.4);
 }
 
 /* Infinite Marquee Ticker */
@@ -94,14 +97,14 @@
   animation-play-state: paused;
 }
 
-/* Cosmic Grid Background overlay */
-.cosmic-grid {
+/* Terminal Grid Background overlay — faint ruled lines, no glow */
+.terminal-grid {
   position: absolute;
   inset: 0;
   background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(237, 234, 224, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(237, 234, 224, 0.04) 1px, transparent 1px);
   pointer-events: none;
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);

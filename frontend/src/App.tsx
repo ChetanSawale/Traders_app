@@ -264,7 +264,7 @@ export default function App() {
       />
 
       {/* 3. Cosmic Space Grid Overlay */}
-      <div className="cosmic-grid" />
+      <div className="terminal-grid" />
 
       {/* 4. Infinite Indices Marquee Ticker */}
       <div className="w-full bg-space-950/80 backdrop-blur border-b border-white/5 py-2 overflow-hidden z-40 text-xs font-mono">
@@ -272,11 +272,11 @@ export default function App() {
           <div className="flex space-x-8">
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">S&P 5520.40</span>
-              <span className="text-emerald-500 font-bold">+0.85%</span>
+              <span className="text-terminal-bull font-bold">+0.85%</span>
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">NASDAQ 18640.20</span>
-              <span className="text-emerald-500 font-bold">+1.24%</span>
+              <span className="text-terminal-bull font-bold">+1.24%</span>
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">DOW 39820.60</span>
@@ -284,22 +284,22 @@ export default function App() {
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">BTC/USD 68,520.10</span>
-              <span className="text-emerald-500 font-bold">+2.45%</span>
+              <span className="text-terminal-bull font-bold">+2.45%</span>
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">ETH/USD 3,820.50</span>
-              <span className="text-emerald-500 font-bold">+3.12%</span>
+              <span className="text-terminal-bull font-bold">+3.12%</span>
             </span>
           </div>
           {/* Loop duplicates for marquee flow */}
           <div className="flex space-x-8">
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">S&P 5520.40</span>
-              <span className="text-emerald-500 font-bold">+0.85%</span>
+              <span className="text-terminal-bull font-bold">+0.85%</span>
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">NASDAQ 18640.20</span>
-              <span className="text-emerald-500 font-bold">+1.24%</span>
+              <span className="text-terminal-bull font-bold">+1.24%</span>
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">DOW 39820.60</span>
@@ -307,11 +307,11 @@ export default function App() {
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">BTC/USD 68,520.10</span>
-              <span className="text-emerald-500 font-bold">+2.45%</span>
+              <span className="text-terminal-bull font-bold">+2.45%</span>
             </span>
             <span className="flex space-x-2">
               <span className="text-zinc-500 font-semibold">ETH/USD 3,820.50</span>
-              <span className="text-emerald-500 font-bold">+3.12%</span>
+              <span className="text-terminal-bull font-bold">+3.12%</span>
             </span>
           </div>
         </div>
@@ -321,7 +321,7 @@ export default function App() {
       <header className="sticky top-0 bg-black/40 backdrop-blur-md border-b border-white/5 z-40 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cosmic-indigo to-cosmic-teal flex items-center justify-center shadow-lg shadow-cosmic-indigo/20">
+            <div className="w-8 h-8 rounded-lg bg-terminal-accent flex items-center justify-center shadow-lg shadow-terminal-accent/20">
               <Sparkles className="w-4 h-4 text-white animate-spin" style={{ animationDuration: '6s' }} />
             </div>
             <span className="font-bold tracking-wider text-white text-base font-mono">TRADESPHERE</span>
@@ -341,7 +341,7 @@ export default function App() {
                 <button
                   key={route.id}
                   onClick={() => setCurrentRoute(route.id)}
-                  className={`flex items-center space-x-1.5 py-5 border-b-2 relative transition-all duration-300 cursor-none ${isActive ? 'text-white border-cosmic-teal' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
+                  className={`flex items-center space-x-1.5 py-5 border-b-2 relative transition-all duration-300 cursor-none ${isActive ? 'text-white border-terminal-accent' : 'text-zinc-500 border-transparent hover:text-zinc-300'}`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{route.label}</span>
@@ -363,7 +363,7 @@ export default function App() {
             {user ? (
               <div className="flex items-center space-x-3 text-xs font-mono">
                 {/* User role student pill */}
-                <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold ${user.role === 'student' ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20' : 'bg-cosmic-teal/10 text-cosmic-teal border border-cosmic-teal/20'}`}>
+                <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold ${user.role === 'student' ? 'bg-terminal-accent/10 text-terminal-accent border border-terminal-accent/20' : 'bg-terminal-accent/10 text-terminal-accent border border-terminal-accent/20'}`}>
                   {user.role}
                 </span>
                 
@@ -407,10 +407,10 @@ export default function App() {
         {/* Auth Gate Page if unauthenticated */}
         {!user ? (
           <div className="max-w-md mx-auto my-[10vh] glass-panel p-6 rounded-xl border border-white/5 relative overflow-hidden flex flex-col space-y-6 animate-float-slow">
-            <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-cosmic-teal/5 blur-[80px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-terminal-accent/5 blur-[80px] rounded-full pointer-events-none" />
 
             <div className="text-center space-y-1">
-              <Lock className="w-10 h-10 text-cosmic-indigo mx-auto mb-2" />
+              <Lock className="w-10 h-10 text-terminal-accent mx-auto mb-2" />
               <h2 className="text-xl font-bold tracking-tight text-white uppercase font-mono">Sign In to TradeSphere</h2>
               <p className="text-xs text-zinc-500">Access live paper trading, curriculums, and logs.</p>
             </div>
@@ -425,13 +425,13 @@ export default function App() {
                     placeholder="Enter 6-digit TOTP code"
                     value={mfaCode}
                     onChange={(e) => setMfaCode(e.target.value)}
-                    className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-cosmic-indigo text-center tracking-widest text-lg cursor-none"
+                    className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-terminal-accent text-center tracking-widest text-lg cursor-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-cosmic-indigo hover:bg-indigo-600 text-white py-2.5 rounded-lg font-semibold tracking-wide transition-colors cursor-none"
+                  className="w-full bg-terminal-accent hover:bg-terminal-accent-dark text-black py-2.5 rounded-lg font-semibold tracking-wide transition-colors cursor-none"
                 >
                   Verify TOTP Code
                 </button>
@@ -446,7 +446,7 @@ export default function App() {
                     placeholder="name@domain.com"
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-cosmic-indigo cursor-none font-sans"
+                    className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-terminal-accent cursor-none font-sans"
                   />
                 </div>
 
@@ -457,7 +457,7 @@ export default function App() {
                     placeholder="••••••••"
                     value={passwordInput}
                     onChange={(e) => setPasswordInput(e.target.value)}
-                    className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-cosmic-indigo cursor-none font-sans"
+                    className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-terminal-accent cursor-none font-sans"
                   />
                 </div>
 
@@ -469,7 +469,7 @@ export default function App() {
 
                 <button
                   type="submit"
-                  className="w-full bg-cosmic-indigo hover:bg-indigo-600 text-white py-2.5 rounded-lg font-semibold tracking-wide transition-colors cursor-none"
+                  className="w-full bg-terminal-accent hover:bg-terminal-accent-dark text-black py-2.5 rounded-lg font-semibold tracking-wide transition-colors cursor-none"
                 >
                   {authMode === 'login' ? 'Login to Portfolio' : 'Create Trader Account'}
                 </button>
@@ -497,14 +497,14 @@ export default function App() {
                   {authMode === 'login' ? (
                     <span className="text-zinc-500">
                       Need a new account?{' '}
-                      <button onClick={() => setAuthMode('register')} className="text-cosmic-teal underline font-semibold hover:text-white cursor-none">
+                      <button onClick={() => setAuthMode('register')} className="text-terminal-accent underline font-semibold hover:text-white cursor-none">
                         Register
                       </button>
                     </span>
                   ) : (
                     <span className="text-zinc-500">
                       Already registered?{' '}
-                      <button onClick={() => setAuthMode('login')} className="text-cosmic-teal underline font-semibold hover:text-white cursor-none">
+                      <button onClick={() => setAuthMode('login')} className="text-terminal-accent underline font-semibold hover:text-white cursor-none">
                         Login
                       </button>
                     </span>
@@ -524,7 +524,7 @@ export default function App() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
                   <div className="space-y-4 lg:col-span-1">
                     <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest flex items-center">
-                      <Sparkles className="w-3.5 h-3.5 text-cosmic-teal mr-1.5 animate-pulse" />
+                      <Sparkles className="w-3.5 h-3.5 text-terminal-accent mr-1.5 animate-pulse" />
                       Paper Trading SaaS
                     </span>
                     <h1 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-[1.15]">
@@ -537,7 +537,7 @@ export default function App() {
                     <div className="flex space-x-3 pt-2">
                       <button
                         onClick={() => setCurrentRoute('trading')}
-                        className="bg-gradient-to-r from-cosmic-indigo to-cosmic-violet hover:brightness-110 text-white font-bold text-xs font-mono tracking-wider uppercase px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-cosmic-indigo/25 flex items-center space-x-2 cursor-none"
+                        className="bg-terminal-accent hover:brightness-110 text-white font-bold text-xs font-mono tracking-wider uppercase px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-terminal-accent/25 flex items-center space-x-2 cursor-none"
                       >
                         <span>Start Trading</span>
                         <ChevronRight className="w-4 h-4" />
@@ -562,7 +562,7 @@ export default function App() {
 
                 {/* Interactive Pricing Toggle (Student vs Trader) */}
                 <div className="glass-panel p-6 rounded-xl border border-white/5 relative overflow-hidden flex flex-col items-center text-center space-y-6">
-                  <div className="absolute top-0 right-0 w-[180px] h-[180px] bg-cosmic-teal/5 blur-[90px] rounded-full pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-[180px] h-[180px] bg-terminal-accent/5 blur-[90px] rounded-full pointer-events-none" />
 
                   <div className="space-y-2">
                     <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Platform Pricing</span>
@@ -573,13 +573,13 @@ export default function App() {
                   <div className="flex items-center space-x-3 bg-white/5 p-1 rounded-lg border border-white/5 text-xs font-mono">
                     <button
                       onClick={() => setPricingCycle('monthly')}
-                      className={`px-3 py-1.5 rounded-md transition-all cursor-none ${pricingCycle === 'monthly' ? 'bg-cosmic-indigo text-white shadow' : 'text-zinc-500 hover:text-white'}`}
+                      className={`px-3 py-1.5 rounded-md transition-all cursor-none ${pricingCycle === 'monthly' ? 'bg-terminal-accent text-black shadow' : 'text-zinc-500 hover:text-white'}`}
                     >
                       Monthly Bill
                     </button>
                     <button
                       onClick={() => setPricingCycle('yearly')}
-                      className={`px-3 py-1.5 rounded-md transition-all cursor-none ${pricingCycle === 'yearly' ? 'bg-cosmic-indigo text-white shadow' : 'text-zinc-500 hover:text-white'}`}
+                      className={`px-3 py-1.5 rounded-md transition-all cursor-none ${pricingCycle === 'yearly' ? 'bg-terminal-accent text-black shadow' : 'text-zinc-500 hover:text-white'}`}
                     >
                       Yearly (-20%)
                     </button>
@@ -592,7 +592,7 @@ export default function App() {
                       <div className="space-y-1">
                         <div className="flex justify-between items-center">
                           <span className="font-bold text-white uppercase font-mono">Student Academy</span>
-                          <span className="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2 py-0.5 rounded text-[9px] font-bold">OAuth Verified</span>
+                          <span className="bg-terminal-accent/10 text-terminal-accent border border-terminal-accent/20 px-2 py-0.5 rounded text-[9px] font-bold">OAuth Verified</span>
                         </div>
                         <div className="text-xl font-bold text-white font-mono mt-1">
                           ${pricingCycle === 'monthly' ? '0.00' : '0.00'} <span className="text-zinc-600 text-xs">/ mo</span>
@@ -608,7 +608,7 @@ export default function App() {
 
                     {/* Trader Plan */}
                     <div className="glass-panel p-5 rounded-lg border border-white/10 bg-white/5 flex flex-col justify-between space-y-4 relative">
-                      <div className="absolute top-0 right-0 bg-cosmic-teal text-black px-2 py-0.5 rounded-bl text-[8px] font-bold uppercase tracking-widest font-mono">Popular</div>
+                      <div className="absolute top-0 right-0 bg-terminal-accent text-black px-2 py-0.5 rounded-bl text-[8px] font-bold uppercase tracking-widest font-mono">Popular</div>
                       <div className="space-y-1">
                         <span className="font-bold text-white uppercase font-mono">Professional Trader</span>
                         <div className="text-xl font-bold text-white font-mono mt-1">
@@ -638,7 +638,7 @@ export default function App() {
                       <button
                         key={t}
                         onClick={() => setSelectedTicker(t)}
-                        className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-none ${selectedTicker === t ? 'bg-cosmic-teal text-black shadow-md' : 'bg-white/5 text-zinc-400 hover:text-white'}`}
+                        className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-none ${selectedTicker === t ? 'bg-terminal-accent text-black shadow-md' : 'bg-white/5 text-zinc-400 hover:text-white'}`}
                       >
                         {t}
                       </button>
@@ -705,12 +705,12 @@ export default function App() {
                 {/* 2FA setup */}
                 <div className="glass-panel p-5 rounded-xl border border-white/5 h-fit flex flex-col space-y-4">
                   <div>
-                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest text-cosmic-violet">Authentication Security</span>
+                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest text-terminal-accent">Authentication Security</span>
                     <h3 className="text-base font-bold text-white mt-1">Setup Multi-Factor Auth (MFA)</h3>
                   </div>
 
                   {user.mfaEnabled ? (
-                    <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center space-x-2 text-xs font-mono font-semibold">
+                    <div className="p-4 rounded-lg bg-terminal-bull/10 border border-terminal-bull/20 text-terminal-bull flex items-center space-x-2 text-xs font-mono font-semibold">
                       <ShieldCheck className="w-5 h-5 shrink-0" />
                       <span>2FA MFA TOTP protection is ACTIVE.</span>
                     </div>
@@ -729,13 +729,13 @@ export default function App() {
                           placeholder="e.g. 123456"
                           value={mfaSetupCode}
                           onChange={(e) => setMfaSetupCode(e.target.value)}
-                          className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-cosmic-indigo text-center tracking-widest text-base cursor-none"
+                          className="w-full bg-white/5 border border-white/5 rounded-lg px-3 py-2 text-white outline-none focus:border-terminal-accent text-center tracking-widest text-base cursor-none"
                         />
                       </div>
 
                       <button
                         type="submit"
-                        className="w-full bg-cosmic-indigo hover:bg-indigo-600 text-white py-2 rounded-lg font-semibold transition-colors cursor-none"
+                        className="w-full bg-terminal-accent hover:bg-terminal-accent-dark text-black py-2 rounded-lg font-semibold transition-colors cursor-none"
                       >
                         Verify & Enable 2FA
                       </button>
@@ -745,7 +745,7 @@ export default function App() {
                       <p className="text-zinc-400 text-xs leading-relaxed">Secure your TradeSphere paper balance account using Speakeasy TOTP dynamic login passcodes.</p>
                       <button
                         onClick={initiateMfaSetup}
-                        className="w-full bg-cosmic-indigo hover:bg-indigo-600 text-white py-2 rounded-lg text-xs font-semibold font-mono tracking-wide transition-colors cursor-none"
+                        className="w-full bg-terminal-accent hover:bg-terminal-accent-dark text-black py-2 rounded-lg text-xs font-semibold font-mono tracking-wide transition-colors cursor-none"
                       >
                         Generate MFA Secret QR
                       </button>
@@ -756,7 +756,7 @@ export default function App() {
                 {/* Audit table */}
                 <div className="lg:col-span-2 glass-panel p-5 rounded-xl border border-white/5">
                   <h3 className="text-sm font-semibold tracking-wide text-white mb-4 flex items-center font-mono uppercase">
-                    <Shield className="w-4 h-4 text-cosmic-violet mr-2 animate-pulse" />
+                    <Shield className="w-4 h-4 text-terminal-accent mr-2 animate-pulse" />
                     Session Activity Audit Log
                   </h3>
 

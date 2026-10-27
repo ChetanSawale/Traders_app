@@ -100,15 +100,15 @@ export default function CustomCursor() {
           transform: `translate3d(${trail.x - (isHovered ? 24 : 14)}px, ${trail.y - (isHovered ? 24 : 14)}px, 0)`,
           backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
           boxShadow: isHovered 
-            ? '0 0 20px rgba(99, 102, 241, 0.4), inset 0 0 10px rgba(6, 182, 212, 0.3)' 
+            ? '0 0 20px rgba(226, 166, 61, 0.4), inset 0 0 10px rgba(226, 166, 61, 0.3)' 
             : 'none',
         }}
       >
         {/* Orbital particles representing gravity field when hovered */}
         {isHovered && (
           <div className="absolute inset-0 animate-spin" style={{ animationDuration: '3s' }}>
-            <div className="absolute -top-1 left-1/2 w-1.5 h-1.5 bg-cosmic-teal rounded-full animate-ping" />
-            <div className="absolute -bottom-1 left-1/2 w-1 h-1 bg-cosmic-violet rounded-full" />
+            <div className="absolute -top-1 left-1/2 w-1.5 h-1.5 bg-terminal-accent rounded-full animate-ping" />
+            <div className="absolute -bottom-1 left-1/2 w-1 h-1 bg-terminal-accent rounded-full" />
           </div>
         )}
       </div>

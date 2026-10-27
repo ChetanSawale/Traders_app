@@ -5,10 +5,10 @@ export default function BentoGrid() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
       {/* 1. Large Asymmetric Telemetry panel */}
       <div className="md:col-span-2 glass-panel p-5 rounded-xl border border-white/5 flex flex-col justify-between relative overflow-hidden group hover:border-white/10 transition-all duration-300">
-        <div className="absolute top-0 right-0 w-[180px] h-[180px] bg-cosmic-indigo/5 blur-[90px] rounded-full pointer-events-none group-hover:bg-cosmic-indigo/8 transition-colors" />
+        <div className="absolute top-0 right-0 w-[180px] h-[180px] bg-terminal-accent/5 blur-[90px] rounded-full pointer-events-none group-hover:bg-terminal-accent/8 transition-colors" />
 
         <div className="space-y-4">
-          <div className="flex items-center space-x-2 text-cosmic-teal">
+          <div className="flex items-center space-x-2 text-terminal-accent">
             <Cpu className="w-5 h-5 animate-pulse" />
             <span className="text-xs font-mono font-semibold uppercase tracking-wider">System Telemetry</span>
           </div>
@@ -40,10 +40,10 @@ export default function BentoGrid() {
 
       {/* 2. Security / Platform Certifications card */}
       <div className="glass-panel p-5 rounded-xl border border-white/5 flex flex-col justify-between relative overflow-hidden group hover:border-white/10 transition-all duration-300">
-        <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-cosmic-violet/5 blur-[60px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-terminal-accent/5 blur-[60px] rounded-full pointer-events-none" />
 
         <div className="space-y-3">
-          <div className="flex items-center space-x-2 text-cosmic-violet">
+          <div className="flex items-center space-x-2 text-terminal-accent">
             <ShieldCheck className="w-5 h-5" />
             <span className="text-xs font-mono font-semibold uppercase tracking-wider">Session Security</span>
           </div>
@@ -58,7 +58,7 @@ export default function BentoGrid() {
 
         <div className="mt-4 pt-3 border-t border-white/5 font-mono text-zinc-500 text-[11px] flex justify-between items-center">
           <span>Auth Encrypt</span>
-          <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded text-[10px] font-bold">
+          <span className="bg-terminal-bull/10 text-terminal-bull border border-terminal-bull/20 px-2 py-0.5 rounded text-[10px] font-bold">
             HS256
           </span>
         </div>
@@ -66,10 +66,10 @@ export default function BentoGrid() {
 
       {/* 3. Education hub bento block */}
       <div className="glass-panel p-5 rounded-xl border border-white/5 flex flex-col justify-between relative overflow-hidden group hover:border-white/10 transition-all duration-300">
-        <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-cosmic-magenta/5 blur-[60px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-terminal-accent/5 blur-[60px] rounded-full pointer-events-none" />
 
         <div className="space-y-3">
-          <div className="flex items-center space-x-2 text-cosmic-magenta">
+          <div className="flex items-center space-x-2 text-terminal-accent">
             <Library className="w-5 h-5" />
             <span className="text-xs font-mono font-semibold uppercase tracking-wider">Trading Academy</span>
           </div>

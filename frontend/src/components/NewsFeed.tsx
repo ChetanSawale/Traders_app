@@ -51,7 +51,7 @@ export default function NewsFeed() {
             placeholder="Search news headlines or sources..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white/5 border border-white/5 rounded-lg pl-10 pr-4 py-2 text-xs text-white placeholder-zinc-500 outline-none focus:border-cosmic-indigo transition-colors cursor-none"
+            className="w-full bg-white/5 border border-white/5 rounded-lg pl-10 pr-4 py-2 text-xs text-white placeholder-zinc-500 outline-none focus:border-terminal-accent transition-colors cursor-none"
           />
         </div>
 
@@ -88,7 +88,7 @@ export default function NewsFeed() {
           {filteredNews.map((item, idx) => {
             // Sentiment Badge styling
             const sentimentColors = {
-              BULLISH: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+              BULLISH: 'bg-terminal-bull/10 text-terminal-bull border-terminal-bull/20',
               BEARISH: 'bg-red-500/10 text-red-400 border-red-500/20',
               NEUTRAL: 'bg-zinc-500/10 text-zinc-400 border-zinc-500/20',
             };
@@ -100,7 +100,7 @@ export default function NewsFeed() {
                 style={{ animationDelay: `${idx * 0.2}s` }}
               >
                 {/* Visual hover background gradients */}
-                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-cosmic-indigo/2 blur-[80px] rounded-full pointer-events-none group-hover:bg-cosmic-indigo/5 transition-colors" />
+                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-terminal-accent/2 blur-[80px] rounded-full pointer-events-none group-hover:bg-terminal-accent/5 transition-colors" />
 
                 <div className="space-y-2">
                   <div className="flex justify-between items-start gap-4">
@@ -118,7 +118,7 @@ export default function NewsFeed() {
                     </span>
                   </div>
 
-                  <h4 className="text-sm font-semibold text-white group-hover:text-cosmic-teal transition-colors font-sans leading-snug">
+                  <h4 className="text-sm font-semibold text-white group-hover:text-terminal-accent transition-colors font-sans leading-snug">
                     {item.title}
                   </h4>
 
@@ -133,7 +133,7 @@ export default function NewsFeed() {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-1 text-cosmic-indigo hover:text-white transition-colors cursor-none"
+                    className="flex items-center space-x-1 text-terminal-accent hover:text-white transition-colors cursor-none"
                   >
                     <span>Read Article</span>
                     <ExternalLink className="w-3.5 h-3.5" />

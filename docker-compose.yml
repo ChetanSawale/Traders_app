@@ -48,6 +48,9 @@ services:
       dockerfile: Dockerfile
     container_name: tradesphere-frontend
     restart: always
+    environment:
+      BACKEND_HOST: backend
+      BACKEND_PORT: "3001"
     ports:
       - "80:80"
     depends_on:
