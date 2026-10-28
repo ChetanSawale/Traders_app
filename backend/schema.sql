@@ -1,4 +1,4 @@
--- TradeSphere Core Schema Initialization
+-- PaperBull Core Schema Initialization
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,

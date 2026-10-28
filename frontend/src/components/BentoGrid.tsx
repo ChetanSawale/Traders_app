@@ -17,7 +17,7 @@ export default function BentoGrid() {
             Zero-Latency Order Matching & High Frequency Quote Aggregation.
           </h3>
           <p className="text-xs text-zinc-400 leading-relaxed max-w-lg">
-            TradeSphere utilizes an in-memory execution pipeline hooked to live market API hooks. Pending limit orders are matched instantly as spreads intersect, ensuring actual trade slippage emulation.
+            PaperBull utilizes an in-memory execution pipeline hooked to live market API hooks. Pending limit orders are matched instantly as spreads intersect, ensuring actual trade slippage emulation.
           </p>
         </div>
 

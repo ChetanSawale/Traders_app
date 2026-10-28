@@ -1,7 +1,7 @@
 {
-  "name": "tradesphere-backend",
+  "name": "paperbull-backend",
   "version": "1.0.0",
-  "description": "TradeSphere paper trading backend platform",
+  "description": "PaperBull paper trading backend platform",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",

@@ -78,9 +78,9 @@ async function start() {
     const host = process.env.HOST || '0.0.0.0';
     
     await server.listen({ port, host });
-    server.log.info(`TradeSphere Backend running at http://localhost:${port}`);
+    server.log.info(`PaperBull Backend running at http://localhost:${port}`);
   } catch (err) {
-    server.log.error(err, 'Error starting TradeSphere backend');
+    server.log.error(err, 'Error starting PaperBull backend');
     process.exit(1);
   }
 }

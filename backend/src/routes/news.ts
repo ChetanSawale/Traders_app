@@ -47,7 +47,7 @@ const FALLBACK_NEWS: NewsItem[] = [
     pubDate: new Date(Date.now() - 10800000).toISOString(),
     source: 'Wall Street Journal',
     sentiment: 'NEUTRAL',
-    summary: 'More young traders are using high-fidelity simulations like TradeSphere to learn market mechanics before committing cash.'
+    summary: 'More young traders are using high-fidelity simulations like PaperBull to learn market mechanics before committing cash.'
   },
   {
     title: 'Global Energy Demands Shift As Clean Tech Adoption Accelerates',

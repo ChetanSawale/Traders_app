@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /*
-  TradeSphere palette — "trading terminal", not the generic AI look.
+  PaperBull palette — "trading terminal", not the generic AI look.
   No indigo/violet/cyan gradients, no glassmorphism glow.
   One signal accent (amber) for actions, green/red reserved for
   market direction only, warm ink + warm paper for everything else.

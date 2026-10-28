@@ -142,7 +142,7 @@ export async function authRoutes(fastify: FastifyInstance) {
     
     // In production, exchange code for github token, fetch profile.
     // For local mockup, automatically log in as a mock GitHub student trader:
-    const mockEmail = `github-student-${code || 'demo'}@tradesphere.edu`;
+    const mockEmail = `github-student-${code || 'demo'}@paperbull.edu`;
     const mockGithubId = `gh-${code || '12345'}`;
 
     try {
@@ -205,7 +205,7 @@ export async function authRoutes(fastify: FastifyInstance) {
     const user = request.user!;
     try {
       const secret = authenticator.generateSecret();
-      const otpauthUrl = authenticator.keyuri(user.email, 'TradeSphere', secret);
+      const otpauthUrl = authenticator.keyuri(user.email, 'PaperBull', secret);
       const qrCode = await QRCode.toDataURL(otpauthUrl);
 
       // Save secret to database temporarily

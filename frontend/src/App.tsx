@@ -324,7 +324,7 @@ export default function App() {
             <div className="w-8 h-8 rounded-lg bg-terminal-accent flex items-center justify-center shadow-lg shadow-terminal-accent/20">
               <Sparkles className="w-4 h-4 text-white animate-spin" style={{ animationDuration: '6s' }} />
             </div>
-            <span className="font-bold tracking-wider text-white text-base font-mono">TRADESPHERE</span>
+            <span className="font-bold tracking-wider text-white text-base font-mono">PAPERBULL</span>
           </div>
 
           {/* Navigation Route Menu (with line indicators) */}
@@ -411,7 +411,7 @@ export default function App() {
 
             <div className="text-center space-y-1">
               <Lock className="w-10 h-10 text-terminal-accent mx-auto mb-2" />
-              <h2 className="text-xl font-bold tracking-tight text-white uppercase font-mono">Sign In to TradeSphere</h2>
+              <h2 className="text-xl font-bold tracking-tight text-white uppercase font-mono">Sign In to PaperBull</h2>
               <p className="text-xs text-zinc-500">Access live paper trading, curriculums, and logs.</p>
             </div>
 
@@ -531,7 +531,7 @@ export default function App() {
                       Simulate Financial Spreads With Zero Risk.
                     </h1>
                     <p className="text-sm text-zinc-400 font-sans leading-relaxed">
-                      TradeSphere bridges professional analytics tools with risk-free learning sandboxes. Experience live indices charts, margin simulations, and quizzes.
+                      PaperBull bridges professional analytics tools with risk-free learning sandboxes. Experience live indices charts, margin simulations, and quizzes.
                     </p>
 
                     <div className="flex space-x-3 pt-2">
@@ -742,7 +742,7 @@ export default function App() {
                     </form>
                   ) : (
                     <div className="space-y-3">
-                      <p className="text-zinc-400 text-xs leading-relaxed">Secure your TradeSphere paper balance account using Speakeasy TOTP dynamic login passcodes.</p>
+                      <p className="text-zinc-400 text-xs leading-relaxed">Secure your PaperBull paper balance account using Speakeasy TOTP dynamic login passcodes.</p>
                       <button
                         onClick={initiateMfaSetup}
                         className="w-full bg-terminal-accent hover:bg-terminal-accent-dark text-black py-2 rounded-lg text-xs font-semibold font-mono tracking-wide transition-colors cursor-none"
