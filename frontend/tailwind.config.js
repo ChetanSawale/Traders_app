@@ -9,16 +9,16 @@ export default {
     extend: {
       colors: {
         terminal: {
-          ink: '#0C0D0A',
-          panel: '#15170F',
-          panel2: '#1B1E14',
-          line: '#2A2D22',
-          paper: '#EDEAE0',
-          muted: '#8F8C7E',
-          accent: '#E2A63D',
-          'accent-dark': '#C9932F',
-          bull: '#2E9E62',
-          bear: '#C94A3A',
+          ink: '#0B0F14',
+          panel: '#11161D',
+          panel2: '#161C25',
+          line: '#232B36',
+          paper: '#E8EDF2',
+          muted: '#8A94A3',
+          accent: '#10B981',
+          'accent-dark': '#059669',
+          bull: '#34D399',
+          bear: '#F87171',
         }
       },
       animation: {
@@ -42,8 +42,8 @@ export default {
           '50%': { transform: 'translateY(-6px)' },
         },
         'pulse-glow': {
-          '0%, 100%': { opacity: 0.3, filter: 'drop-shadow(0 0 5px rgba(226, 166, 61, 0.2))' },
-          '50%': { opacity: 0.8, filter: 'drop-shadow(0 0 15px rgba(226, 166, 61, 0.6))' },
+          '0%, 100%': { opacity: 0.3, filter: 'drop-shadow(0 0 5px rgba(16, 185, 129, 0.2))' },
+          '50%': { opacity: 0.8, filter: 'drop-shadow(0 0 15px rgba(16, 185, 129, 0.6))' },
         },
         orbit: {
           '0%': { transform: 'rotate(0deg) translateX(80px) rotate(0deg)' },
