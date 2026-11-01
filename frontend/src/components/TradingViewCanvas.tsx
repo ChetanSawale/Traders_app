@@ -31,7 +31,7 @@ export default function TradingViewCanvas({ ticker, wsUrl, activeOrders = [], on
     const chart = createChart(chartContainerRef.current, {
       layout: {
         background: { type: ColorType.Solid, color: 'transparent' },
-        textColor: '#a1a1aa',
+        textColor: '#94A3B8',
       },
       grid: {
         vertLines: { color: 'rgba(255, 255, 255, 0.02)' },
@@ -50,11 +50,11 @@ export default function TradingViewCanvas({ ticker, wsUrl, activeOrders = [], on
 
     // Add Candlestick Series
     const candleSeries = chart.addCandlestickSeries({
-      upColor: '#2E9E62',
-      downColor: '#C94A3A',
+      upColor: '#34D399',
+      downColor: '#F87171',
       borderVisible: false,
-      wickUpColor: '#2E9E62',
-      wickDownColor: '#C94A3A',
+      wickUpColor: '#34D399',
+      wickDownColor: '#F87171',
     });
 
     seriesRef.current = candleSeries;
@@ -193,7 +193,7 @@ export default function TradingViewCanvas({ ticker, wsUrl, activeOrders = [], on
     activeOrders
       .filter((o) => o.ticker === ticker)
       .forEach((order) => {
-        const color = order.side === 'BUY' || order.side === 'BUY_TO_COVER' ? '#2E9E62' : '#C94A3A';
+        const color = order.side === 'BUY' || order.side === 'BUY_TO_COVER' ? '#34D399' : '#F87171';
         try {
           const line = seriesRef.current?.createPriceLine({
             price: order.price,
