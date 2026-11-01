@@ -5,18 +5,18 @@
 @tailwind utilities;
 
 /*
-  PaperBull palette — "trading terminal", not the generic AI look.
+  PaperBull palette — cool dark "trading terminal", not the generic AI look.
   No indigo/violet/cyan gradients, no glassmorphism glow.
-  One signal accent (amber) for actions, green/red reserved for
-  market direction only, warm ink + warm paper for everything else.
-  - ink #0C0D0A, panel #15170F, line #2A2D22
-  - paper #EDEAE0, muted #8F8C7E
-  - accent #E2A63D, bull #2E9E62, bear #C94A3A
+  One signal accent (emerald) for actions, green/red reserved for
+  market direction only, cool slate ink + cool paper for everything else.
+  - ink #0B0F14, panel #11161D, line #232B36
+  - paper #E8EDF2, muted #8A94A3
+  - accent #10B981, bull #34D399, bear #F87171
 */
 @layer base {
   body {
-    background-color: #0C0D0A;
-    color: #EDEAE0;
+    background-color: #0B0F14;
+    color: #E8EDF2;
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
     cursor: none; /* Hide default cursor to use custom magnetic tracker */
@@ -35,8 +35,8 @@
 
 /* Solid terminal panel — replaces glassmorphism */
 .glass-panel {
-  background: #15170F;
-  border: 1px solid #2A2D22;
+  background: #11161D;
+  border: 1px solid #232B36;
 }
 
 /* Amber edge on hover — replaces the indigo/violet gradient glow */
@@ -47,7 +47,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  border: 1px solid rgba(226, 166, 61, 0.45);
+  border: 1px solid rgba(16, 185, 129, 0.45);
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
@@ -73,14 +73,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(12, 13, 10, 0.5);
+  background: rgba(11, 15, 20, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(237, 234, 224, 0.15);
+  background: rgba(232, 237, 242, 0.15);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(226, 166, 61, 0.4);
+  background: rgba(16, 185, 129, 0.4);
 }
 
 /* Infinite Marquee Ticker */
@@ -103,8 +103,8 @@
   inset: 0;
   background-size: 40px 40px;
   background-image:
-    linear-gradient(to right, rgba(237, 234, 224, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(237, 234, 224, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(232, 237, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(232, 237, 242, 0.04) 1px, transparent 1px);
   pointer-events: none;
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
