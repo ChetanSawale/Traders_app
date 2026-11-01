@@ -165,11 +165,11 @@ export default function CourseQuizzes() {
 
           {/* Visual support line helper guide */}
           {result && activeQuiz === 'support_zone' && (
-            <line x1="0" y1="220" x2="600" y2="220" stroke="#2E9E62" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
+            <line x1="0" y1="220" x2="600" y2="220" stroke="#34D399" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
           )}
           {/* Visual resistance line helper guide */}
           {result && activeQuiz === 'resistance_zone' && (
-            <line x1="0" y1="80" x2="600" y2="80" stroke="#C94A3A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
+            <line x1="0" y1="80" x2="600" y2="80" stroke="#F87171" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
           )}
 
           {/* Candlestick chart path */}
@@ -197,12 +197,12 @@ export default function CourseQuizzes() {
           {/* Definitions */}
           <defs>
             <linearGradient id="chart-gradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#E2A63D" />
-              <stop offset="50%" stopColor="#E2A63D" />
-              <stop offset="100%" stopColor="#E2A63D" />
+              <stop offset="0%" stopColor="#10B981" />
+              <stop offset="50%" stopColor="#10B981" />
+              <stop offset="100%" stopColor="#10B981" />
             </linearGradient>
             <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#E2A63D" />
+              <stop offset="0%" stopColor="#10B981" />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
           </defs>
@@ -213,7 +213,7 @@ export default function CourseQuizzes() {
               cx={clickedPoint.x}
               cy={clickedPoint.y}
               r="7"
-              fill={result ? (result.correct ? '#2E9E62' : '#C94A3A') : '#E2A63D'}
+              fill={result ? (result.correct ? '#34D399' : '#F87171') : '#10B981'}
               className="animate-ping"
               opacity="0.8"
             />
@@ -223,7 +223,7 @@ export default function CourseQuizzes() {
               cx={clickedPoint.x}
               cy={clickedPoint.y}
               r="4"
-              fill={result ? (result.correct ? '#2E9E62' : '#C94A3A') : '#E2A63D'}
+              fill={result ? (result.correct ? '#34D399' : '#F87171') : '#10B981'}
             />
           )}
         </svg>
