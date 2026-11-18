@@ -113,8 +113,8 @@ export default function MetricsPanel() {
     ctx.closePath();
 
     const areaGlow = ctx.createLinearGradient(0, 0, 0, height);
-    areaGlow.addColorStop(0, 'rgba(16, 185, 129, 0.25)');   // Signal emerald
-    areaGlow.addColorStop(0.5, 'rgba(16, 185, 129, 0.08)'); // Signal emerald fade
+    areaGlow.addColorStop(0, 'rgba(200, 240, 74, 0.25)');   // Signal lime
+    areaGlow.addColorStop(0.5, 'rgba(200, 240, 74, 0.08)'); // Signal lime fade
     areaGlow.addColorStop(1, 'transparent');
     ctx.fillStyle = areaGlow;
     ctx.fill();
@@ -131,9 +131,9 @@ export default function MetricsPanel() {
     ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
     
     const lineGlow = ctx.createLinearGradient(0, 0, width, 0);
-    lineGlow.addColorStop(0, '#10B981');
-    lineGlow.addColorStop(0.5, '#10B981');
-    lineGlow.addColorStop(1, '#10B981');
+    lineGlow.addColorStop(0, '#C8F04A');
+    lineGlow.addColorStop(0.5, '#C8F04A');
+    lineGlow.addColorStop(1, '#C8F04A');
     ctx.strokeStyle = lineGlow;
     ctx.lineWidth = 2.5;
     ctx.stroke();
@@ -151,7 +151,7 @@ export default function MetricsPanel() {
     ctx.stroke();
 
     // Text labels
-    ctx.fillStyle = '#8A94A3';
+    ctx.fillStyle = '#9A9AA0';
     ctx.font = '10px JetBrains Mono';
     ctx.fillText(`$${maxVal.toLocaleString(undefined, { maximumFractionDigits: 0 })}`, padding, padding - 5);
     ctx.fillText(`$${minVal.toLocaleString(undefined, { maximumFractionDigits: 0 })}`, padding, height - padding + 15);
